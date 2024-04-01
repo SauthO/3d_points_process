@@ -2,6 +2,7 @@ import sys
 import numpy as np
 import numpy.linalg as LA
 import open3d as o3d
+import matplotlib.pyplot as plt
 
 from icp_registration import ICPRegistration_PointToPoint
 from icp_registration import ICPRegistration_PointToPlane
@@ -38,3 +39,8 @@ o3d.visualization.draw_geometries([pcd_t, pcd_reg] )
 
 # ICPの実行の様子の可視化
 visualize_icp_progress( reg )
+
+plt.ylabel("Distance [m/pts.]")
+plt.xlabel("Iteration")
+plt.plot(reg.d)
+plt.show()
